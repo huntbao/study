@@ -1,4 +1,5 @@
 var path = require('path');
+
 module.exports = {
     entry: './index.jsx',
     output: {
@@ -8,8 +9,13 @@ module.exports = {
         loaders: [
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /(node_modules)/,
                 loader: 'babel'
+            },
+            {
+                test: /\.styl$/,
+                exclude: /(node_modules)/,
+                loader: 'style-loader!css-loader!stylus-loader'
             }
         ]
     },

@@ -3,6 +3,6 @@
 
 import ReactDOM from 'react-dom'
 
-import Hello from './Hello.jsx'
+import Hello from './component/hello/Hello.jsx'
 
 ReactDOM.render(<Hello />, document.getElementById('content'))
