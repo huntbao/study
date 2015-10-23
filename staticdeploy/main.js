@@ -10,8 +10,8 @@ var minifyCss = require('gulp-minify-css')
 var zip = require('gulp-zip')
 var git = require('gulp-git')
 
-var glyJsMerge = require('./gulp-gly-jsmerge')
-var glyCssMerge = require('./gulp-gly-cssmerge')
+var deployJsMerge = require('./gulp-deploy-jsmerge')
+var deployCssMerge = require('./gulp-deploy-cssmerge')
 
 var startTime = Date.now()
 
@@ -37,9 +37,9 @@ gulp.task('style', ['clean-dist'], function (cb) {
         }
     }
     var stream =  gulp.src('static/src/main/webapp/**/*.*')
-        .pipe(glyJsMerge())
+        .pipe(deployJsMerge())
         .pipe(gulpif(gulpJSFilter, uglify({compress: false})))
-        .pipe(glyCssMerge())
+        .pipe(deployCssMerge())
         .pipe(gulpif(gulpCSSFilter, minifyCss()))
         .pipe(gulp.dest('dist'))
     stream.on('end', function () {

@@ -8,7 +8,7 @@ module.exports = function () {
         if (filePath.match(/\.merge\.js/)) {
             console.log('Merging and uglifying javascript file: ' + filePath)
             var fileContent = file.contents.toString()
-            var re = /static.glodon.com\/static\/(.*?\.js)/g
+            var re = /static.example.com\/static\/(.*?\.js)/g
             var result
             var empty = true
             while (result = re.exec(fileContent)) {
